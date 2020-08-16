@@ -1,5 +1,8 @@
-# The following list comprehension exercises will make use of the 
-# defined Human class. 
+# The following list comprehension exercises will make use of the
+# defined Human class.
+import math
+
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -7,6 +10,7 @@ class Human:
 
     def __repr__(self):
         return f"<Human: {self.name}, {self.age}>"
+
 
 humans = [
     Human("Alice", 29),
@@ -24,24 +28,26 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [x.name for x in humans if x.name[0] == "D"]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [x.name for x in humans if x.name[-1] == "e"]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+letters = ["C", "D", "E", "F", "G"]
+c = [x.name for x in humans if x.name[0] == "C" or x.name[0] ==
+     "D" or x.name[0] == "E" or x.name[0] == "F" or x.name[0] == "G"]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [x.age + 10 for x in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -66,6 +72,5 @@ print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-import math
 h = []
 print(h)
